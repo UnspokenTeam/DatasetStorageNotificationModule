@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetStorageNotificationModule.Application", "DatasetStorageNotificationModule.Application\DatasetStorageNotificationModule.Application.csproj", "{50012B95-F04C-49BC-BFD1-3E5DF1338AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetStorageNotificationModule.Infrastructure", "DatasetStorageNotificationModule.Infrastructure\DatasetStorageNotificationModule.Infrastructure.csproj", "{0A320B46-D583-4D00-A917-1BA4B9DD4D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetStorageNotificationModule.Presentation", "DatasetStorageNotificationModule.Presentation\DatasetStorageNotificationModule.Presentation.csproj", "{B95B711B-4DB3-4BC0-AB0B-3ABA4DB02DC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50012B95-F04C-49BC-BFD1-3E5DF1338AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50012B95-F04C-49BC-BFD1-3E5DF1338AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50012B95-F04C-49BC-BFD1-3E5DF1338AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50012B95-F04C-49BC-BFD1-3E5DF1338AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A320B46-D583-4D00-A917-1BA4B9DD4D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A320B46-D583-4D00-A917-1BA4B9DD4D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A320B46-D583-4D00-A917-1BA4B9DD4D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A320B46-D583-4D00-A917-1BA4B9DD4D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B95B711B-4DB3-4BC0-AB0B-3ABA4DB02DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B95B711B-4DB3-4BC0-AB0B-3ABA4DB02DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B95B711B-4DB3-4BC0-AB0B-3ABA4DB02DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B95B711B-4DB3-4BC0-AB0B-3ABA4DB02DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
