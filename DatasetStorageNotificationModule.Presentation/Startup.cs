@@ -38,7 +38,7 @@ public class Startup
 
     private static void ConfigureSwagger(WebApplication app)
     {
-        app.UseSwagger(options => { options.RouteTemplate = "/openapi/{documentName}.json"; });
+        app.MapOpenApi();
         app.MapScalarApiReference();
     }
 
@@ -99,7 +99,7 @@ public class Startup
     private static void ConfigureSwagger(IServiceCollection services)
     {
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddOpenApi();
     }
 
     private static void ConfigureHttpLogger(IServiceCollection services) =>
