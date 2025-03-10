@@ -23,7 +23,10 @@ public class Startup
         ConfigureApp(_app);
     }
 
-    public void Run() => _app.Run();
+    public void Run()
+    {
+        _app.Run();
+    }
 
     private static void ConfigureApp(WebApplication app)
     {
@@ -38,7 +41,7 @@ public class Startup
 
     private static void ConfigureSwagger(WebApplication app)
     {
-        app.UseSwagger(options => { options.RouteTemplate = "/openapi/{documentName}.json"; });
+        app.MapOpenApi();
         app.MapScalarApiReference();
     }
 
@@ -52,22 +55,25 @@ public class Startup
     {
         app.UseRouting();
         app.UseCors(
-            cors => cors.AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowAnyOrigin()
-        );
+                    cors => cors.AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowAnyOrigin()
+                   );
         app.MapControllers();
     }
 
     private static void ConfigureBasePath(WebApplication app)
     {
         var hostingConfiguration = app.Configuration
-            .GetSection(nameof(HostingConfiguration))
-            .Get<HostingConfiguration>();
+                                      .GetSection(nameof(HostingConfiguration))
+                                      .Get<HostingConfiguration>();
         app.UsePathBase(hostingConfiguration!.BaseUrl);
     }
 
-    private static void ConfigureHttpLogger(WebApplication app) => app.UseHttpLogging();
+    private static void ConfigureHttpLogger(WebApplication app)
+    {
+        app.UseHttpLogging();
+    }
 
     private static void ConfigureExceptionHandler(WebApplication app)
     {
@@ -99,42 +105,48 @@ public class Startup
     private static void ConfigureSwagger(IServiceCollection services)
     {
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddOpenApi();
     }
 
-    private static void ConfigureHttpLogger(IServiceCollection services) =>
+    private static void ConfigureHttpLogger(IServiceCollection services)
+    {
         services.AddHttpLogging
-        (
-            options =>
-            {
-                options.LoggingFields = HttpLoggingFields.All;
-                options.ResponseBodyLogLimit = 12 * 1024;
-            }
-        );
-
-    private static void ConfigureEndpoints(IServiceCollection services) =>
-        services.AddControllers()
-            .AddJsonOptions
             (
-                x =>
-                {
-                    x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    x.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
-                }
+             options =>
+             {
+                 options.LoggingFields = HttpLoggingFields.All;
+                 options.ResponseBodyLogLimit = 12 * 1024;
+             }
             );
+    }
 
-    private static void ConfigureMediatr(IServiceCollection services) =>
-        services.AddMediatR
-        (
-            serviceConfiguration =>
-            {
-                serviceConfiguration
-                    .RegisterServicesFromAssemblies
+    private static void ConfigureEndpoints(IServiceCollection services)
+    {
+        services.AddControllers()
+                .AddJsonOptions
                     (
-                        AppDomain
-                            .CurrentDomain
-                            .GetAssemblies()
+                     x =>
+                     {
+                         x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                         x.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
+                     }
                     );
-            }
-        );
+    }
+
+    private static void ConfigureMediatr(IServiceCollection services)
+    {
+        services.AddMediatR
+            (
+             serviceConfiguration =>
+             {
+                 serviceConfiguration
+                     .RegisterServicesFromAssemblies
+                         (
+                          AppDomain
+                              .CurrentDomain
+                              .GetAssemblies()
+                         );
+             }
+            );
+    }
 }
