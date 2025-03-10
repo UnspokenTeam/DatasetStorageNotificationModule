@@ -1,0 +1,3 @@
+﻿namespace DatasetStorageNotificationModule.Application.Commands.Notifications.UpdateNotification.Contracts;
+
+public record UpdateNotificationCommandResponse();

@@ -8,8 +8,12 @@
 
     <ItemGroup>
         <PackageReference Include="MediatR" Version="12.4.1"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.2"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\DatasetStorageNotificationModule.Infrastructure\DatasetStorageNotificationModule.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>
